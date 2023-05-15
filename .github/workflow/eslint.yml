@@ -1,0 +1,12 @@
+name: 'ESLint'
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: debian-latest
+    steps:
+    - name: Check code
+    run: yarn run lint
