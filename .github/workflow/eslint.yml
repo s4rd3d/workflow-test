@@ -1,12 +1,11 @@
-name: 'ESLint'
-
-on:
-  push:
-  pull_request:
-
+name: CI
+on: push
 jobs:
-  check:
-    runs-on: debian-latest
+  build:
+    runs-on: ubuntu-latest
     steps:
-    - name: Check code
-    run: yarn run lint
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: yarn
+    - name: Run ESLint
+      run: eslint . --ext .js,.jsx,.ts,.tsx
